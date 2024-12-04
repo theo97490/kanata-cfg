@@ -4,68 +4,58 @@
   override-release-on-activation yes
 )
 
-(deflocalkeys-win
-  a 81
-  ; 77
-)
-
-(defsrc
-  caps a s d f j k l ; ' rsft
-)
-
-
 (defvar
   tap-time 75
   hold-time 200
 )
 
-(defalias
-  a (tap-hold $tap-time $hold-time a lmet)
-  s (tap-hold $tap-time $hold-time s lctrl)
-  d (tap-hold $tap-time $hold-time d lalt)
-  f (tap-hold $tap-time $hold-time f lsft)
-
-  j (tap-hold $tap-time $hold-time j lsft)
-  k (tap-hold $tap-time $hold-time k lalt)
-  l (tap-hold $tap-time $hold-time l lctrl)
-  ; (tap-hold $tap-time $hold-time ; lmet)
+(deflocalkeys-win
+  a 81
+  ; 77
 )
 
-(deflayer base
-  esc @a @s @d @f @j @k @l @; S-' lsft
+(defsrc)
+
+(deflayermap (base)
+ a (tap-hold $tap-time $hold-time a lmet)
+ s (tap-hold $tap-time $hold-time s lctrl)
+ d (tap-hold $tap-time $hold-time d lalt)
+ f (multi (layer-while-held sftlayer) (tap-hold $tap-time $hold-time f sft))
+
+ j (multi (layer-while-held sftlayer) (tap-hold $tap-time $hold-time j sft))
+ k (tap-hold $tap-time $hold-time k lalt)
+ l (tap-hold $tap-time $hold-time l lctrl)
+ ; (tap-hold $tap-time $hold-time ; lmet)
+
+ 1 S-1
+ 2 S-2
+ 3 S-3
+ 4 S-4
+ 5 S-5
+ 6 S-6
+ 7 S-7
+ 8 S-8
+ 9 S-9
+ 0 S-0
+
+ sft (multi (layer-while-held sftlayer) sft )
+ f12 (layer-switch disabled)
 )
 
-(defoverrides
-    (1) (sft 1)
-    (2) (sft 2)
-    (3) (sft 3)
-    (4) (sft 4)
-    (5) (sft 5)
-    (6) (sft 6)
-    (7) (sft 7)
-    (8) (sft 8)
-    (9) (sft 9)
-    (0) (sft 0)
-
-    (ralt 1) (ralt 1)
-    (ralt 2) (ralt 2)
-    (ralt 3) (ralt 3)
-    (ralt 4) (ralt 4)
-    (ralt 5) (ralt 5)
-    (ralt 6) (ralt 6)
-    (ralt 7) (ralt 7)
-    (ralt 8) (ralt 8)
-    (ralt 9) (ralt 9)
-    (ralt 0) (ralt 0)
-
-    (sft 1) (1)
-    (sft 2) (2)
-    (sft 3) (3)
-    (sft 4) (4)
-    (sft 5) (5)
-    (sft 6) (6)
-    (sft 7) (7)
-    (sft 8) (8)
-    (sft 9) (9)
-    (sft 0) (0)
+(deflayermap (sftlayer)
+ 1 (multi (release-key sft) 1)
+ 2 (multi (release-key sft) 2)
+ 3 (multi (release-key sft) 3)
+ 4 (multi (release-key sft) 4)
+ 5 (multi (release-key sft) 5)
+ 6 (multi (release-key sft) 6)
+ 7 (multi (release-key sft) 7)
+ 8 (multi (release-key sft) 8)
+ 9 (multi (release-key sft) 9)
+ 0 (multi (release-key sft) 0)
 )
+
+(deflayermap (disabled)
+  f12 (layer-switch base)
+)
+
