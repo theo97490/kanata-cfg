@@ -1,10 +1,16 @@
+;; defsrc is still necessary
 (defcfg
   process-unmapped-keys yes
-  override-release-on-activation yes ;; important for defoverrides shifted keys
+  override-release-on-activation yes
+)
+
+(deflocalkeys-win
+  a 81
+  ; 77
 )
 
 (defsrc
-  caps a s d f j k l ; '
+  caps a s d f j k l ; ' rsft
 )
 
 
@@ -23,26 +29,23 @@
   k (tap-hold $tap-time $hold-time k lalt)
   l (tap-hold $tap-time $hold-time l lctrl)
   ; (tap-hold $tap-time $hold-time ; lmet)
-
-  one (multi lsft 1)
 )
 
 (deflayer base
-  caps @a @s @d @f @j @k @l @; S-'
+  esc @a @s @d @f @j @k @l @; S-' lsft
 )
 
 (defoverrides
-    ;; Mapping 1 to 0 to SHIFT + 1 to SHIFT + 0
-    (1) (sft 1)    ;; 2 -> mapped to SHIFT + 2
-    (2) (sft 2)    ;; 2 -> mapped to SHIFT + 2
-    (3) (sft 3)    ;; 3 -> mapped to SHIFT + 3
-    (4) (sft 4)    ;; 4 -> mapped to SHIFT + 4
-    (5) (sft 5)    ;; 5 -> mapped to SHIFT + 5
-    (6) (sft 6)    ;; 6 -> mapped to SHIFT + 6
-    (7) (sft 7)    ;; 7 -> mapped to SHIFT + 7
-    (8) (sft 8)    ;; 8 -> mapped to SHIFT + 8
-    (9) (sft 9)    ;; 9 -> mapped to SHIFT + 9
-    (0) (sft 0)    ;; 0 -> mapped to SHIFT + 0
+    (1) (sft 1)
+    (2) (sft 2)
+    (3) (sft 3)
+    (4) (sft 4)
+    (5) (sft 5)
+    (6) (sft 6)
+    (7) (sft 7)
+    (8) (sft 8)
+    (9) (sft 9)
+    (0) (sft 0)
 
     (ralt 1) (ralt 1)
     (ralt 2) (ralt 2)
@@ -55,15 +58,14 @@
     (ralt 9) (ralt 9)
     (ralt 0) (ralt 0)
 
-    ;; Mapping SHIFT + 1 to SHIFT + 0 back to 1 to 0
-    (sft 1) (1)    ;; SHIFT + 1 -> mapped back to 1
-    (sft 2) (2)    ;; SHIFT + 2 -> mapped back to 2
-    (sft 3) (3)    ;; SHIFT + 3 -> mapped back to 3
-    (sft 4) (4)    ;; SHIFT + 4 -> mapped back to 4
-    (sft 5) (5)    ;; SHIFT + 5 -> mapped back to 5
-    (sft 6) (6)    ;; SHIFT + 6 -> mapped back to 6
-    (sft 7) (7)    ;; SHIFT + 7 -> mapped back to 7
-    (sft 8) (8)    ;; SHIFT + 8 -> mapped back to 8
-    (sft 9) (9)    ;; SHIFT + 9 -> mapped back to 9
-    (sft 0) (0)    ;; SHIFT + 0 -> mapped back to 0
+    (sft 1) (1)
+    (sft 2) (2)
+    (sft 3) (3)
+    (sft 4) (4)
+    (sft 5) (5)
+    (sft 6) (6)
+    (sft 7) (7)
+    (sft 8) (8)
+    (sft 9) (9)
+    (sft 0) (0)
 )
