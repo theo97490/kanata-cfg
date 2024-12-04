@@ -39,23 +39,36 @@
  0 S-0
 
  sft (multi (layer-while-held sftlayer) sft )
+ ralt (multi (layer-while-held altgrlayer) ralt )
  f12 (layer-switch disabled)
 )
 
 (deflayermap (sftlayer)
- 1 (multi (release-key sft) 1)
- 2 (multi (release-key sft) 2)
- 3 (multi (release-key sft) 3)
- 4 (multi (release-key sft) 4)
- 5 (multi (release-key sft) 5)
- 6 (multi (release-key sft) 6)
- 7 (multi (release-key sft) 7)
- 8 (multi (release-key sft) 8)
- 9 (multi (release-key sft) 9)
- 0 (multi (release-key sft) 0)
+ 1 (unshift 1)
+ 2 (unshift 2)
+ 3 (unshift 3)
+ 4 (unshift 4)
+ 5 (unshift 5)
+ 6 (unshift 6)
+ 7 (unshift 7)
+ 8 (unshift 8)
+ 9 (unshift 9)
+ 0 (unshift 0)
+)
+
+(deflayermap (altgrlayer)
+ 1 1
+ 2 2
+ 3 3
+ 4 4
+ 5 5
+ 6 6
+ 7 7
+ 8 8
+ 9 9
+ 0 0
 )
 
 (deflayermap (disabled)
   f12 (layer-switch base)
 )
-
