@@ -17,6 +17,8 @@
 (defsrc)
 
 (deflayermap (base)
+ caps esc
+
  a (tap-hold $tap-time $hold-time a lmet)
  s (tap-hold $tap-time $hold-time s lctrl)
  d (tap-hold $tap-time $hold-time d lalt)
