@@ -40,7 +40,8 @@
  9 S-9
  0 S-0
 
- sft (multi (layer-while-held sftlayer) sft )
+ lsft (multi (layer-while-held sftlayer) sft )
+ rsft (multi (layer-while-held sftlayer) sft )
  ralt (multi (layer-while-held altgrlayer) ralt )
  f12 (layer-switch disabled)
 )
