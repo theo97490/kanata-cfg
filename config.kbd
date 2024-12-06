@@ -5,8 +5,8 @@
 )
 
 (defvar
-  tap-time 75
-  hold-time 200
+  tap-time 200
+  hold-time 175
 )
 
 (deflocalkeys-win
@@ -17,14 +17,14 @@
 (defsrc)
 
 (deflayermap (base)
- caps esc
+ caps (multi (layer-while-held sftlayer) sft)
 
  a (tap-hold $tap-time $hold-time a lmet)
  s (tap-hold $tap-time $hold-time s lctrl)
  d (tap-hold $tap-time $hold-time d lalt)
- f (multi (layer-while-held sftlayer) (tap-hold $tap-time $hold-time f sft))
+ f (tap-hold $tap-time $hold-time f (multi (layer-while-held sftlayer) sft))
 
- j (multi (layer-while-held sftlayer) (tap-hold $tap-time $hold-time j sft))
+ j (tap-hold $tap-time $hold-time j (multi (layer-while-held sftlayer) sft))
  k (tap-hold $tap-time $hold-time k lalt)
  l (tap-hold $tap-time $hold-time l lctrl)
  ; (tap-hold $tap-time $hold-time ; lmet)
@@ -75,3 +75,4 @@
 (deflayermap (disabled)
   f12 (layer-switch base)
 )
+
