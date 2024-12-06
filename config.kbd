@@ -47,7 +47,7 @@
 )
 
 (deflayermap (sftlayer)
- spc (unshift spc)
+ spc spc
  1 (unshift 1)
  2 (unshift 2)
  3 (unshift 3)
