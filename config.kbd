@@ -2,6 +2,7 @@
 (defcfg
   process-unmapped-keys yes
   override-release-on-activation yes
+  windows-altgr add-lctl-release
 )
 
 (defvar
@@ -12,68 +13,58 @@
 (deflocalkeys-win
   a 81
   ; 77
+  ' 192
+  rparen 219
+)
+
+(deflocalkeys-linux
+  rparen 219
 )
 
 (defsrc)
 
+;; Normal key put, shift only output, additionals/other mods output
+(deftemplate fork-shift-modded (normal shifted modded)
+  (switch
+    (lalt lmet lctrl) $modded break
+    (lsft) $shifted break
+    () $normal break
+  )
+)
+
 (deflayermap (base)
- caps (multi (layer-while-held sftlayer) sft)
+ caps esc
+ ' S-'
 
  a (tap-hold $tap-time $hold-time a lmet)
  s (tap-hold $tap-time $hold-time s lctrl)
  d (tap-hold $tap-time $hold-time d lalt)
- f (tap-hold $tap-time $hold-time f (multi (layer-while-held sftlayer) sft))
+ f (tap-hold $tap-time $hold-time f lsft)
 
- j (tap-hold $tap-time $hold-time j (multi (layer-while-held sftlayer) sft))
+ j (tap-hold $tap-time $hold-time j lsft)
  k (tap-hold $tap-time $hold-time k lalt)
  l (tap-hold $tap-time $hold-time l lctrl)
  ; (tap-hold $tap-time $hold-time ; lmet)
 
- 1 S-1
- 2 S-2
- 3 S-3
- 4 S-4
- 5 S-5
- 6 S-6
- 7 S-7
- 8 S-8
- 9 S-9
- 0 S-0
+ 1 (template-expand fork-shift-modded S-1 (unshift 1) 1)
+ 2 (template-expand fork-shift-modded S-2 (unshift 2) 2)
+ 3 (template-expand fork-shift-modded S-3 (unshift 3) 3)
+ 4 (template-expand fork-shift-modded S-4 (unshift 4) 4)
+ 5 (template-expand fork-shift-modded S-5 (unshift 5) 5)
+ 6 (template-expand fork-shift-modded S-6 (unshift 6) 6)
+ 7 (template-expand fork-shift-modded S-7 (unshift 7) 7)
+ 8 (template-expand fork-shift-modded S-8 (unshift 8) 8)
+ 9 (template-expand fork-shift-modded S-9 (unshift 9) 9)
+ 0 (template-expand fork-shift-modded S-0 (unshift 0) 0)
+ rparen (template-expand fork-shift-modded rparen (unshift rparen) rparen)
 
- lsft (multi (layer-while-held sftlayer) sft )
- rsft (multi (layer-while-held sftlayer) sft )
- ralt (multi (layer-while-held altgrlayer) ralt )
+ rctrl lctrl
+ rsft lsft
+ rmet lmet
+
  f12 (layer-switch disabled)
-)
-
-(deflayermap (sftlayer)
- spc spc
- 1 (unshift 1)
- 2 (unshift 2)
- 3 (unshift 3)
- 4 (unshift 4)
- 5 (unshift 5)
- 6 (unshift 6)
- 7 (unshift 7)
- 8 (unshift 8)
- 9 (unshift 9)
- 0 (unshift 0)
-)
-
-(deflayermap (altgrlayer)
- 1 1
- 2 2
- 3 3
- 4 4
- 5 5
- 6 6
- 7 7
- 8 8
- 9 9
- 0 0
 )
 
 (deflayermap (disabled)
   f12 (layer-switch base)
 )
-
